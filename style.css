@@ -154,8 +154,8 @@ code, textarea {
 }
 
 a:hover {
-    border-bottom: 1px solid;
-    border-top: 1px solid;
+    border-top: 1px solid var(--textcolor);
+    border-bottom: 1px solid var(--textcolor);
 }
 
 aside {
