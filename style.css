@@ -1,58 +1,43 @@
-/* ------- Header ------- */
-
 * { margin: 0; padding: 0; box-sizing: border-box;
-    
-    /* Color scheme */
-    /* #F7F625 #D18200 #06F39E */
-    --textcolor: #fcfbf9; /*#dadada;*/
-    --bgcolor: #040304;     /* #0f0d11; */
-    --highlight: #FF9933; /* #613dc1;   #F5DF50; */
-    --neoncolor: #e4d029;
-    --hovercolor:  #613dc1;
-    --shadowcolor: #cf8d43; /* animation */
-    --greencolor: #53fc5e;  /* #16b746; code #53fc5e */
-    --extracolor: #ff60ca;  /*#ff60ca; */
-    --extralightcolor: #F0DF; /*#F39510 FBFF31; #D18200; #7f236e;*/
-    /* you can set wallpaper as background */
-    --wallpaper: url("img/.webp");
-
-    /* Tricolors */
-    --tricolor1: #FF9933;
-    --tricolor3: #138808;
-
-    /* Light Color scheme */
-    --ltextcolor: #409ecc;
-    --lbgcolor: #002a44;;
-    --lhighlight: #29e0d5;
-    --lgreencolor: #ff60ca;
-    --lshadowcolor: #65b7fa; /* animation */
-    --lneoncolor: #65b7fa;
+	  
+	  /* Color scheme */
+	  --textcolor: #dada; 
+	  --bgcolor: #0f0d11;      
+	  --highlight: #29e0d5;  
+	  --neoncolor: #65b7fa;
+	  --hovercolor: #FFcf33;
+	  --shadowcolor: #65b7fa; 
+	  --greencolor: #ff60ca;  
+	  --extracolor: #F0DF;  
+	  --extralightcolor: #F0DF; 
   }
 
-/* for testing specific color scheme just mess up scheme name in belows variables */
-@media (prefers-color-scheme: dark) { /* example: to disable dark scheme by altering dark to darkk */ 
+@media (prefers-color-scheme: dark) {
     * {
 	--textcolor: var(--textcolor);
 	--bgcolor: var(--bgcolor); /* #0b0703; #0f0d11 #0d0d0f; #141414; */
-	--highlight: var(--greencolor); /* #dd61ce #ba4cac; #ffc400; */
+	--highlight: var(--highlight); /* #dd61ce #ba4cac; #ffc400; */
     }
 }
 
-@media (prefers-color-scheme: light) { /* or to disable light scheme by mess the word light and make it lightt */ 
-    * {
-	--textcolor: var(--ltextcolor);
-	--bgcolor: var(--lbgcolor); /* #0b0703; #0f0d11 #0d0d0f; #141414; */
-	--highlight: var(--lhighlight); /* #dd61ce #ba4cac; #ffc400; */
-	--greencolor: var(--lgreencolor);
-	--shadowcolor: var(--lshadowcolor);
-	--neoncolor: var(--lneoncolor);
-    }
-} 
 
+/* ------- Header ------- */
+
+header {
+  padding: 5vw 5vw 0 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+nav a:not(:last-of-type) {
+  margin-right: 1.5vw;
+}
+
+      
 /* ------- Sections ------- */
-
-/*  this is a where magic happens */
-/*  sections gives minimal approach to site and saves us from writing multiple pages for each sections */
 
 section {
     padding: calc(6em + 5vw) 5vw 8vw 5vw;
@@ -74,141 +59,121 @@ section#home { /* Show #home by default */
     display: block;
 }
 
-/* I am not sure if this is a right approach to font but definitely i need a hand here/*
-      @font-face {
-	  font-family: JetBrains Mono;
-	  src: url(fonts/JetBrainsMono-Regular.woff2);
-	  font-family: Twemoji;
-	  src: url(fonts/twemoji.ttf);
-      }
+@font-face {
+    font-family: JetBrains Mono;
+    src: url(fonts/JetBrainsMono-Regular.woff2);
+    font-family: Twemoji;
+    src: url(fonts/twemoji.ttf);
+}
 
-      body {
-          font-family: JetBrains Mono, system-ui, sans-serif;
-          line-height: 1.4;
-          color: var(--textcolor);
-          background: var(--bgcolor);
-          position: relative;
-          max-width: 64em;  /* remove this for a full-width layout */
-margin: 0 auto;  /* centers the layout */
+body {
+    font-family: JetBrains Mono, system-ui, sans-serif;
+    line-height: 1.4;
+    color: var(--textcolor);
+    background: var(--bgcolor);
+    position: relative;
+    max-width: 64em;  /* remove this for a full-width layout */
+    margin: 0 auto;  /* centers the layout */
 
 }
 
- h2, h3, h4 {
-     font-size: 1em;
-     font-weight: 600;
-     margin: 1.6em 0 .6em 0;
- }
-
- p, ul, ol, article {
-     max-width: 60ch; /* Limit line-length to 60 characters */
-     margin-bottom: .6em;
- }
-
-
- header h1 {
-     font-size: 2em;
-     flex: 1; /* pushes nav to the right */
-     white-space: nowrap;
-     /* padding: 0 5vw .5em 0;*/
- }
-
- /*Animation stuff */
- neon {
-     font-size: 2em;
-     flex: 1;
-     white-space: nowrap;
-     color: var(--neoncolor);
-     animation: animate 1s ease-in-out infinite alternate;
- }
-
- @keyframes animate{
-     from{
-	 text-shadow: 0 0 10px var(--shadowcolor);
-     }
-     to{
-	 text-shadow: 0 0 20px var(--shadowcolor),
-		      0 0 5px var(--shadowcolor);
-     }
- }
-
- .box a::after {
-     content: " _";
-     width: 0px;
-     height: 0px;
-     background: var(--highlight);
-     display: inline-block;
- }
-
- @keyframes cursor-blink {
-     0% {
-	 opacity: 0;
-     }
- }
-
- .box a::after {
-     animation: cursor-blink 1.5s steps(2) infinite;
- }
-
- div {
-     padding: 30px; 
-     border: 2px dotted var(--highlight);
- }
-
- edges {
-     padding: 1vw;
-     border: 2px dotted var(--greencolor);
- }
-
- p {
-     color: var(--greencolor);  
- }
-
- time {
-     color: var(--greencolor);
- }
-
- code, textarea {
-     font-family: JetBrains Mono, monospace;
-     font-size: 1em;
-     opacity: 30;
-     color: var(--greencolor);  
- }
-
- a:hover {
-     border-top: 1px solid var(--tricolor1);
-     border-bottom: 1px solid var(--tricolor3);
- }
-
- aside {
-     width: 30%;
-     padding: 10px;
-     border: 1px solid var(--greencolor);
-     float: right;
-     color: var(--textcolor);
-     background: var(--bgcolor);
- }
-
- /* We can use this for writing vande matarm like stuff */
- special-quote {
-     width: 30%;
-     font-family: 'Marck Script', cursive;
-     font-size: 130%;
-     color: var(--extracolor);
- }
-
-
-header {
-  padding: 5vw 5vw 0 5vw;
-  display: flex;
-  flex-wrap: wrap;
-  position: absolute;
-  width: 100%;
-  z-index: 2;
+h2, h3, h4 {
+    font-size: 1em;
+    font-weight: 600;
+    margin: 1.6em 0 .6em 0;
 }
 
-nav a:not(:last-of-type) {
-  margin-right: 1.5vw;
+p, ul, ol, article {
+    max-width: 60ch; /* Limit line-length to 60 characters */
+    margin-bottom: .6em;
 }
+
+
+header h1 {
+    font-size: 2em;
+    flex: 1; /* pushes nav to the right */
+    white-space: nowrap;
+    /* padding: 0 5vw .5em 0;*/
+}
+
+neon {
+    font-size: 2em;
+    flex: 1;
+    white-space: nowrap;
+    color: var(--neoncolor);
+    animation: animate 1s ease-in-out infinite alternate;
+}
+
+@keyframes animate{
+    from{
+	text-shadow: 0 0 10px var(--shadowcolor);
+    }
+    to{
+	text-shadow: 0 0 20px var(--shadowcolor),
+		     0 0 5px var(--shadowcolor);
+    }
+}
+
+.box a::after {
+    content: " _";
+    width: 0px;
+    height: 0px;
+    background: var(--highlight);
+    display: inline-block;
+}
+
+@keyframes cursor-blink {
+    0% {
+	opacity: 0;
+    }
+}
+
+.box a::after {
+    animation: cursor-blink 1.5s steps(2) infinite;
+}
+
+div {
+    padding: 30px; 
+    border:1px solid var(--highlight);
+}
+
+edges {
+    padding: 1vw;
+    border: 1px solid var(--greencolor);
+}
+
+p {
+    color: var(--greencolor);  
+}
+
+code, textarea {
+    font-family: JetBrains Mono, monospace;
+    font-size: 1em;
+    opacity: 30;
+    color: var(--greencolor);  
+}
+
+a:hover {
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+
+aside {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid var(--greencolor);
+    float: right;
+    color: var(--textcolor);
+    background: var(--bgcolor);
+}
+
+special-quote {
+    width: 30%;
+    font-family: 'Marck Script', cursive;
+    font-size: 130%;
+    color: var(--extracolor);
+}
+
 
 /* ------- General ------- */
 
@@ -287,6 +252,8 @@ img, svg, video, audio {
   height: auto;
   fill: currentColor;
 }
+
+
 
 a code {
   opacity:1;
@@ -419,7 +386,6 @@ article time {
 
 /* ------- Images Grid ------- */
 
-/* ------- Now this part i left here cuz it might be helpful if we need to add photo gallery ------- */
 .grid {
   display: grid;
   grid-gap: 5vmin;
@@ -454,7 +420,6 @@ article time {
 
 /* ------- Slideshow ------- */
 
-/* ------- in portfolio section we can show case our projects ------- */
 .slides {
   position: fixed;
   top: 0;
@@ -492,7 +457,7 @@ article time {
   object-fit: cover;
 }
 
-/* ------- Lightbox (for images) ------- */
+/* ------- Lightbox ------- */
 
 .lightbox {
   display: none;
