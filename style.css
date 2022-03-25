@@ -25,15 +25,15 @@
 
 header {
   padding: 5vw 5vw 0 5vw;
-  display: flex;
-  flex-wrap: wrap;
+  display: block; /* flex */
+  /* flex-wrap: wrap; */
   position: absolute;
   width: 100%;
   z-index: 2;
 }
 
 nav a:not(:last-of-type) {
-  margin-right: 1.5vw;
+  margin-top: 1.5vw;
 }
 
       
