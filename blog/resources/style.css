@@ -15,8 +15,8 @@
 @media (prefers-color-scheme: dark) {
     * {
 	--textcolor: var(--textcolor);
-	--bgcolor: var(--bgcolor);
-	--highlight: var(--highlight); 
+	--bgcolor: var(--bgcolor); /* #0b0703; #0f0d11 #0d0d0f; #141414; */
+	--highlight: var(--highlight); /* #dd61ce #ba4cac; #ffc400; */
     }
 }
 
